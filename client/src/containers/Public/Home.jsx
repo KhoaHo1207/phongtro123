@@ -1,10 +1,15 @@
 import React from "react";
 import Header from "./Header";
-
+import { Outlet } from "react-router-dom";
+import Navigation from "./Navigation";
 function Home() {
   return (
-    <div className="w-1100 m-auto h-full border-red-500">
+    <div className="w-full flex flex-col items-center h-full border border-red-500">
       <Header />
+      <Navigation />
+      <div className="w-full flex flex-col items-center justify-start mt-3">
+        <Outlet /> {/*dai dien cho cac route con*/}
+      </div>
     </div>
   );
 }

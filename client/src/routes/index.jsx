@@ -1,15 +1,7 @@
 import React from "react";
-import { Home, Login, Header } from "../containers/Public";
-const publicRoute = [
-  {
-    path: "/login",
-    component: Login,
-  },
-  {
-    path: "/home",
-    component: Home,
-  },
-];
-const privateRoute = [];
+const path = {
+  HOME: "/*",
+  LOGIN: "login", //khong co / -> duong dan tuyet doi, khong dung cho route long nhau
+};
 
-export { publicRoute, privateRoute };
+export default path;

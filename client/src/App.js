@@ -1,16 +1,14 @@
 import { Routes, Route } from "react-router-dom";
-import { publicRoute, privateRoute } from "./routes";
+import path from "../src/routes/index";
+import { Home, Login } from "./containers/Public";
 
 function App() {
   return (
     <div className="h-screen w-screen bg-primary">
       <Routes>
-        {publicRoute &&
-          publicRoute.length > 0 &&
-          publicRoute.map((route, index) => {
-            const Page = route.component;
-            return <Route path={route.path} element={<Page />}></Route>;
-          })}
+        <Route path={path.HOME} element={<Home />}>
+          <Route path={path.LOGIN} element={<Login />} />
+        </Route>
       </Routes>
     </div>
   );
