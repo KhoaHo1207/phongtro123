@@ -1,11 +1,11 @@
 import express from "express";
-// require("dotenv").config(); //lay bien tu file dotenv
-import { config } from "dotenv";
+require("dotenv").config(); //lay bien tu file dotenv
+// import { config } from "dotenv";
 import cors from "cors";
 import initRoutes from "./src/routes/index.js"; //tu dong vao file index
 import connectDatabase from "./src/config/connectDatabase.js";
 // const app = express();
-config();
+// config();
 const app = express();
 
 app.use(

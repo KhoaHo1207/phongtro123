@@ -1,4 +1,4 @@
-import authRouter from "./auth.js";
+import authRouter from "./auth";
 
 const initRoutes = (app) => {
   //nhan app lam doi so
