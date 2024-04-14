@@ -1,6 +1,6 @@
 import React, { memo } from "react";
 
-function InputForm({ label }) {
+function InputForm({ label, value, setValue, type }) {
   return (
     <div>
       <label htmlFor="phone" className="text-xs">
@@ -11,6 +11,10 @@ function InputForm({ label }) {
         name="phone"
         id="phone"
         className="outline-none bg-[#eBf0fe] p-2 rounded-md w-full"
+        value={value}
+        onChange={(e) => {
+          setValue((prev) => ({ ...prev, [type]: e.target.value }));
+        }}
       />
     </div>
   );
