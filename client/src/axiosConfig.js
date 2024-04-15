@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baeUrl: process.env.REACT_APP_SERVER_URL, //url cua ben phia server
+  baseURL: process.env.REACT_APP_SERVER_URL, //url cua ben phia server
 });
 
 axios.interceptors.request.use(
@@ -9,6 +9,7 @@ axios.interceptors.request.use(
     // Do something before request is sent
     //intercept.request truoc khi gui requesdt len api -> thuc hien doan code o trong truoc
     const token = localStorage.getItem("persist: auth");
+    console.log(token);
     return config;
   },
   function (error) {

@@ -1,12 +1,27 @@
 //dung de xac thuc
 
+import actionTypes from "../actions/actionType";
 const iniState = {
   isLoggedIn: false, //false -> chua dang nhap
-  token: 1234, // luu JWT
+  token: null, // luu JWT
+  msg: "",
 };
 //persist duoi local storage
 const authReducer = (state = iniState, action) => {
   switch (action.type) {
+    case actionTypes.REGISTER_SUCCESS:
+      return {
+        ...state,
+        isLoggedIn: true,
+        token: action.data,
+      };
+    case actionTypes.REGISTER_FAIL:
+      return {
+        ...state,
+        isLoggedIn: false,
+        msg: action.data,
+        token: null,
+      };
     default:
       return state;
   }

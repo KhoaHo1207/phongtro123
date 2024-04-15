@@ -3,8 +3,11 @@ import { Button, InputForm } from "../../components";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { apiRegister } from "../../services/auth";
+import * as actions from "../../store/actions";
+import { useDispatch } from "react-redux";
 function Login() {
   const location = useLocation();
+  const dispatch = useDispatch();
   const [register, setRegister] = useState(location.state?.flag); //? mean la khi nao co gia tri -> choc vo thang ke tiep
   console.log(location.state);
 
@@ -17,12 +20,14 @@ function Login() {
     setRegister(location.state?.flag);
   }, [location.state?.flag]); //khi flag thay doi -> set lai
 
+  // const handleSubmit = async () => {
+  //   console.log(payload);
+  //   const response = await apiRegister(payload); //khong phai {payload}, sau khi chay on chuyen qua redux
+  //   console.log(response);
+  // };
   const handleSubmit = async () => {
     console.log(payload);
-    // const response = await apiRegister({
-    //   payload,
-    // });
-    // console.log(response);
+    dispatch(actions.register(payload));
   };
 
   return (
