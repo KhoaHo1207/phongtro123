@@ -1,6 +1,6 @@
 //dung de xac thuc
 
-import actionTypes from "../actions/actionType";
+import actionTypes from "../actions/actionTypes";
 const iniState = {
   isLoggedIn: false, //false -> chua dang nhap
   token: null, // luu JWT
@@ -14,7 +14,9 @@ const authReducer = (state = iniState, action) => {
         ...state,
         isLoggedIn: true,
         token: action.data,
+        msg: "",
       };
+
     case actionTypes.REGISTER_FAIL:
       return {
         ...state,

@@ -26,7 +26,7 @@ function Login() {
   //   console.log(response);
   // };
   const handleSubmit = async () => {
-    console.log(payload);
+    console.log("payload: ", payload);
     dispatch(actions.register(payload));
   };
 
